@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF372381-C7DB-4DD9-A913-1FE6985A6FD7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>XR</RootNamespace>
+    <AssemblyName>XR</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>XR.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AssimpNet">
+      <HintPath>..\lib\AssimpNet.4.1.0\lib\net40\AssimpNet.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\lib\OpenTK.3.1.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>..\lib\OpenTK.GLControl.3.1.0\lib\net20\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TargaImage">
+      <HintPath>..\lib\TargaImage.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cameras\CameraBase.cs" />
+    <Compile Include="Cameras\CameraOrbit.cs" />
+    <Compile Include="Inspection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inspection.Designer.cs">
+      <DependentUpon>Inspection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scene\Animator.cs" />
+    <Compile Include="Cameras\CameraFirstPerson.cs" />
+    <Compile Include="Objects\FPSTracker.cs" />
+    <Compile Include="Cameras\ICameraController.cs" />
+    <Compile Include="Objects\Grid2D.cs" />
+    <Compile Include="Lights\PointLight.cs" />
+    <Compile Include="PropertiesGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertiesGrid.Designer.cs">
+      <DependentUpon>PropertiesGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Scene\Renderer.cs" />
+    <Compile Include="Settings\Core.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Core.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Graphics.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Graphics.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\Properties.Designer.cs">
+      <DependentUpon>Properties.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Objects\Label.cs" />
+    <Compile Include="Objects\Environment.cs" />
+    <Compile Include="Texture\Texture.cs" />
+    <Compile Include="Texture\TextureSet.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Scene\Mesh.cs" />
+    <Compile Include="Scene\Model.cs" />
+    <Compile Include="Shader.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Inspection.resx">
+      <DependentUpon>Inspection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PropertiesGrid.resx">
+      <DependentUpon>PropertiesGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="_Samples\3ds\DinoRider.3ds" />
+    <None Include="_Samples\cadnav.com_model\Free 3D Models.url" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\eye_ddn.tga" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal.3ds" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal.lwo" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal.max" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal.mb" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal.mtl" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal.obj" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_DDN.tga" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_diffuse.tga" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_Hair_diffuse.tga" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_Head_DDN.tga" />
+    <None Include="_Samples\cadnav.com_model\Model_C0905028\teeth_black_ddn.tga" />
+    <None Include="_Samples\Normal\container3.mtl" />
+    <None Include="_Samples\Normal\container3.obj" />
+    <None Include="_Samples\Skeleton_animated\uploads_files_600310_skeleton_animated.FBX" />
+    <None Include="Settings\Core.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Core.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\Graphics.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Graphics.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Settings\Properties.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Properties.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Shaders\XREnvironmentFrag.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XREnvironmentVert.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XRGrid2DFrag.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XRGrid2DVert.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XRModelFrag.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XRModelVert.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XRLabelFrag.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Shaders\XRLabelVert.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\eye_blue.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\eye_generic.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Eye_Lish.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_diffuse.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_Hair_diffuse.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_Hair_spec.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_Head_diffuse.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_Head_spec.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_spec.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\Helena_Rosenthal_SSS.dds" />
+    <Content Include="_Samples\cadnav.com_model\Model_C0905028\teeth_03.dds" />
+    <Content Include="_Samples\cadnav.com_model\readme.txt" />
+    <Content Include="_Samples\Normal\Diffuse_map.png" />
+    <Content Include="_Samples\Normal\Normal_map.png" />
+    <Content Include="_Samples\Skeleton_animated\Skeleton_Body_DiffuseGlossiness.png" />
+    <Content Include="_Samples\Skeleton_animated\Skeleton_Body_Normal.png" />
+    <Content Include="Skybox\back.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skybox\bottom.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skybox\front.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skybox\left.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skybox\right.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Skybox\top.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

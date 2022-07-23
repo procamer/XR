@@ -1,0 +1,214 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  Deep Exploration 5.5 5.5.3.2642 Release
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl facehelena_r01
+Ka 0.498039 0.498039 0.498039
+Kd 1 1 1
+Ks 0.831373 0.72549 0.682353
+illum 2
+Ns 17.1484
+map_Kd C:\\Helena_Rsenthal\\Helena_Rosenthal_Head_diffuse.dds
+map_bump C:\\Helena_Rsenthal\\Helena_Rosenthal_Head_DDN.tga
+bump C:\\Helena_Rsenthal\\Helena_Rosenthal_Head_DDN.tga
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl eye_overlayb01
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.745098 0.745098 0.745098
+illum 2
+Ns 10.5561
+map_Kd C:\\Helena_Rsenthal\\Eye_Lish.dds
+map_bump 
+bump 
+map_opacity C:\\Helena_Rsenthal\\Eye_Lish.dds
+map_d C:\\Helena_Rsenthal\\Eye_Lish.dds
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl mouthteeth_01
+Ka 0.498039 0.498039 0.498039
+Kd 1 1 1
+Ks 0.752941 0.752941 0.752941
+illum 2
+Ns 27.8576
+map_Kd C:\\Helena_Rsenthal\\teeth_03.dds
+map_bump C:\\Helena_Rsenthal\\teeth_black_ddn.tga
+bump C:\\Helena_Rsenthal\\teeth_black_ddn.tga
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Material__35
+Ka 0.498039 0.498039 0.498039
+Kd 0.498039 0.498039 0.498039
+Ks 0.831373 0.72549 0.682353
+illum 2
+Ns 17.1484
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl skinhelena_r01
+Ka 0.411765 0.4 0.396078
+Kd 1 1 1
+Ks 0.898039 0.878431 0.866667
+illum 2
+Ns 59.7141
+map_Kd C:\\Helena_Rsenthal\\Helena_Rosenthal_diffuse.tga
+map_bump C:\\Helena_Rsenthal\\Helena_Rosenthal_DDN.tga
+bump C:\\Helena_Rsenthal\\Helena_Rosenthal_DDN.tga
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Material__58
+Ka 0.411765 0.4 0.396078
+Kd 1 1 1
+Ks 0.898039 0.878431 0.866667
+illum 2
+Ns 59.7141
+map_Kd C:\\Helena_Rsenthal\\Helena_Rosenthal_diffuse.tga
+map_bump C:\\Helena_Rsenthal\\Helena_Rosenthal_DDN.tga
+bump C:\\Helena_Rsenthal\\Helena_Rosenthal_DDN.tga
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Material__46
+Ka 0.411765 0.4 0.396078
+Kd 0.411765 0.4 0.396078
+Ks 0.898039 0.878431 0.866667
+illum 2
+Ns 59.7141
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl hair_001hele01
+Ka 0.498039 0.498039 0.498039
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 36.7583
+map_Kd C:\\Helena_Rsenthal\\Helena_Rosenthal_Hair_diffuse.tga
+map_bump 
+bump 
+map_opacity C:\\Helena_Rsenthal\\Helena_Rosenthal_Hair_diffuse.dds
+map_d C:\\Helena_Rsenthal\\Helena_Rosenthal_Hair_diffuse.dds
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl metal_001gre01
+Ka 0.196078 0.105882 0.109804
+Kd 0.196078 0.105882 0.109804
+Ks 0.584314 0.584314 0.584314
+illum 2
+Ns 32
+map_Kd C:\\Helena_Rsenthal\\grey.tif
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Material__57
+Ka 0.498039 0.498039 0.498039
+Kd 0.498039 0.498039 0.498039
+Ks 1 1 1
+illum 2
+Ns 36.7583
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl irisiris01
+Ka 0.501961 0.501961 0.501961
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 51.9842
+map_Kd C:\\Helena_Rsenthal\\eye_blue.dds
+map_bump C:\\Helena_Rsenthal\\eye_ddn.tga
+bump C:\\Helena_Rsenthal\\eye_ddn.tga
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl eyeballeyeba01
+Ka 0.501961 0.501961 0.501961
+Kd 1 1 1
+Ks 1 1 1
+illum 2
+Ns 36.7583
+map_Kd C:\\Helena_Rsenthal\\eye_generic.dds
+map_bump C:\\Helena_Rsenthal\\eye_ddn.tga
+bump C:\\Helena_Rsenthal\\eye_ddn.tga
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Material__69
+Ka 0.501961 0.501961 0.501961
+Kd 0.501961 0.501961 0.501961
+Ks 1 1 1
+illum 2
+Ns 51.9842
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 

@@ -1,0 +1,9 @@
+newmtl Mat
+Ka 1 1 1
+Kd 0.8 0.8 0.8
+map_Kd Diffuse_map.png
+Ks 1 1 1
+bump Normal_map.png
+Ns 50
+illum 7
+
