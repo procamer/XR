@@ -69,20 +69,26 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\Cameras\CameraBase.cs" />
+    <Compile Include="Engine\Cameras\CameraOrbit.cs" />
+    <Compile Include="Engine\Animator.cs" />
+    <Compile Include="Engine\Cameras\CameraFirstPerson.cs" />
+    <Compile Include="Engine\FPSTracker.cs" />
+    <Compile Include="Engine\Cameras\ICameraController.cs" />
+    <Compile Include="Engine\Grid2D.cs" />
+    <Compile Include="Engine\PointLight.cs" />
     <Compile Include="Forms\Inspector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Inspector.Designer.cs">
       <DependentUpon>Inspector.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cameras\CameraBase.cs" />
-    <Compile Include="Cameras\CameraOrbit.cs" />
-    <Compile Include="SceneAnimator.cs" />
-    <Compile Include="Cameras\CameraFirstPerson.cs" />
-    <Compile Include="FPSTracker.cs" />
-    <Compile Include="Cameras\ICameraController.cs" />
-    <Compile Include="Grid2D.cs" />
-    <Compile Include="PointLight.cs" />
+    <Compile Include="Forms\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PropertiesGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,7 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SceneRenderer.cs" />
+    <Compile Include="Engine\Renderer.cs" />
     <Compile Include="Settings\Core.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -110,26 +116,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="Label.cs" />
-    <Compile Include="Environment.cs" />
-    <Compile Include="Texture.cs" />
-    <Compile Include="TextureSet.cs" />
+    <Compile Include="Engine\Label.cs" />
+    <Compile Include="Engine\Environment.cs" />
+    <Compile Include="Engine\Texture.cs" />
+    <Compile Include="Engine\TextureSet.cs" />
     <Compile Include="Controls\TimeSlideControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Controls\TimeSlideControl.designer.cs">
       <DependentUpon>TimeSlideControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility.cs" />
-    <Compile Include="Mesh.cs" />
-    <Compile Include="Scene.cs" />
-    <Compile Include="Shader.cs" />
-    <Compile Include="Forms\MainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Engine\Utility.cs" />
+    <Compile Include="Engine\Mesh.cs" />
+    <Compile Include="Engine\Model.cs" />
+    <Compile Include="Engine\Shader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Inspector.resx">
@@ -152,7 +152,87 @@
       <DependentUpon>TimeSlideControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Resources\Model\Solus The Knight\Solus_The_Knight.fbx" />
+    <None Include="Resources\Model\Guard\castle_guard_01.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Death %281%29.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Death.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Idle.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Impact.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Jump.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Kick.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Run.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Slash.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Guard\Sword And Shield Walk.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Air Squat.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Climbing Up Wall.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Climbing.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Falling Flat Impact.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Fast Run.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Freehang Drop.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Hanging Idle.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Idle.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Jump.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Left Shimmy.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Lifting.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Right Shimmy.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Running Backward.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Running Forward Flip.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Sprinting Forward Roll.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\LaraCroft\Standing Up.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Model\Solus The Knight\Solus_The_Knight.fbx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Settings\Core.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Core.Designer.cs</LastGenOutput>
@@ -201,11 +281,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Ekran.PNG" />
-    <Content Include="Resources\Model\Solus The Knight\ReadMe.txt" />
-    <Content Include="Resources\Model\Solus The Knight\temp_normal_map.png" />
-    <Content Include="Resources\Model\Solus The Knight\tex_knight_color_map_1024.png" />
-    <Content Include="Resources\Model\Solus The Knight\tex_knight_metalness_map_1024.png" />
-    <Content Include="Resources\Model\Solus The Knight\tex_occlusion_map_1024.png" />
+    <Content Include="Resources\Model\Guard\readme.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Model\LaraCroft\Lara.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Model\Solus The Knight\ReadMe.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Model\Solus The Knight\temp_normal_map.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Model\Solus The Knight\tex_knight_color_map_1024.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Model\Solus The Knight\tex_knight_metalness_map_1024.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Model\Solus The Knight\tex_occlusion_map_1024.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Skybox\back.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

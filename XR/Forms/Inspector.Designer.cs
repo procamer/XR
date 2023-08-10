@@ -33,6 +33,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listBoxAnimations = new System.Windows.Forms.ListBox();
             this.panelAnimTools = new System.Windows.Forms.Panel();
+            this.btnLoadAnim = new System.Windows.Forms.Button();
             this.hScrollCursor = new System.Windows.Forms.HScrollBar();
             this.label1 = new System.Windows.Forms.Label();
             this.timeSlideControl = new XR.TimeSlideControl();
@@ -80,6 +81,7 @@
             // 
             this.panelAnimTools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelAnimTools.Controls.Add(this.btnLoadAnim);
             this.panelAnimTools.Controls.Add(this.hScrollCursor);
             this.panelAnimTools.Controls.Add(this.label1);
             this.panelAnimTools.Controls.Add(this.timeSlideControl);
@@ -90,6 +92,16 @@
             this.panelAnimTools.Name = "panelAnimTools";
             this.panelAnimTools.Size = new System.Drawing.Size(357, 313);
             this.panelAnimTools.TabIndex = 19;
+            // 
+            // btnLoadAnim
+            // 
+            this.btnLoadAnim.Location = new System.Drawing.Point(178, 124);
+            this.btnLoadAnim.Name = "btnLoadAnim";
+            this.btnLoadAnim.Size = new System.Drawing.Size(148, 24);
+            this.btnLoadAnim.TabIndex = 24;
+            this.btnLoadAnim.Text = "Load Mixamo Animation";
+            this.btnLoadAnim.UseVisualStyleBackColor = true;
+            this.btnLoadAnim.Click += new System.EventHandler(this.btnLoadAnim_Click);
             // 
             // hScrollCursor
             // 
@@ -204,8 +216,8 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPageTree);
             this.tabControl1.Controls.Add(this.tabPageAnimation);
+            this.tabControl1.Controls.Add(this.tabPageTree);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -288,5 +300,6 @@
         private System.Windows.Forms.TabPage tabPageAnimation;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.HScrollBar hScrollCursor;
+        private System.Windows.Forms.Button btnLoadAnim;
     }
 }

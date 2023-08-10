@@ -13,19 +13,17 @@ namespace XR
     public partial class MainWindow : Form
     {
         public static List<PointLight> pointLights = new List<PointLight>();
-
-        private Scene activeScene;
-        private Grid2D grid2D;
-        private Environment environment;
-        public Label labelDisplay;
+        public static  Model activeScene;
         private FPSTracker fpsTracker;
         private double accTime;
 
-        Inspector animation;
-        //Inspection inspection;
+        private Grid2D grid2D;
+        private Environment environment;
+        public Label labelDisplay;
+        private Inspector inspector;
+        private Animator animator;
 
         private bool glControlLoaded = false;
-
         private ICameraController ActiveCamera;
 
         public static Size RenderSize { get; set; }
@@ -92,7 +90,7 @@ namespace XR
             }
             fpsTracker.Dispose();
             labelDisplay.Dispose();
-            if (animation != null) animation.Close();
+            if (inspector != null) inspector.Close();
             //if (inspection != null) inspection.Close();
         }
 
@@ -107,20 +105,6 @@ namespace XR
             RenderSize = glControl1.ClientSize;
             GL.Viewport(RenderSize);
             if (labelDisplay != null) labelDisplay.Resize();
-        }
-
-        private void FileOpen_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new OpenFileDialog
-            {
-                Filter = Utility.GetSupportedImportFormat2()
-            };
-
-            if (openFile.ShowDialog() == DialogResult.OK)
-            {
-                OpenFile(openFile.FileName);
-                Text = Path.GetFileName(openFile.FileName);
-            }
         }
 
         private void ViewEnvironment_Click(object sender, EventArgs e)
@@ -173,62 +157,13 @@ namespace XR
             };
         }
 
-        //private void InspectionMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    if (activeScene != null && activeScene.SceneAnimator != null)
-        //    {
-        //        inspection = new Inspection(activeScene.Raw);
-        //        inspection.Show();
-        //    }
-        //}
-
         private void AnimationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (activeScene != null && activeScene.SceneAnimator != null)
+            if (activeScene != null && activeScene.Animator != null)
             {
-                animation = new Inspector(activeScene);
-                animation.Show();
+                inspector = new Inspector(activeScene);
+                inspector.Show();
             }
-        }
-
-        private void OpenFile(string filename)
-        {
-            try
-            {
-                if (activeScene != null) activeScene.Dispose();
-                if (animation != null) animation.Close();
-                //if (inspection != null) inspection.Close();
-
-                activeScene = new Scene(filename);
-
-                //pointLights.Clear();
-                //// Light1
-                //pointLights.Add(new PointLight()
-                //{
-                //    position = Vector3.Multiply(new Vector3(10.0f, 5.0f, 10.0f), activeScene._scale),
-                //    ambient = new Vector3(4.0f),
-                //    diffuse = new Vector3(5.0f),
-                //    specular = new Vector3(20.0f),
-                //    linear = 10.0027f,
-                //    quadratic = 0.0028f
-                //}); 
-
-                //// Light2
-                //pointLights.Add(pointLights[0]);
-                //pointLights[1].position = Vector3.Multiply(new Vector3(-10.0f, 5.0f, 10.0f), activeScene._scale);
-
-                //// Light3
-                //pointLights.Add(pointLights[0]);
-                //pointLights[2].position = Vector3.Multiply(new Vector3(-10.0f, 5.0f, -10.0f), activeScene._scale);
-
-                //// Light4
-                //pointLights.Add(pointLights[0]);
-                //pointLights[3].position = Vector3.Multiply(new Vector3(10.0f, 5.0f, -10.0f), activeScene._scale);
-            }
-            catch (Exception)
-            {
-            }
-
         }
 
         private void ApplicationIdle(object sender, EventArgs e)
@@ -395,5 +330,67 @@ namespace XR
 
         #endregion
 
+        //private void FileOpen_Click(object sender, EventArgs e)
+        //{
+        //}
+
+        private void OpenModelFile(string filename)
+        {
+            try
+            {
+                if (activeScene != null) activeScene.Dispose();
+                if (inspector != null) inspector.Close();
+                activeScene = new Model(filename);
+                animator = activeScene.Animator;
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
+        private void OpenAnimationFile(string filename)
+        {
+            try
+            {
+                //if (activeScene != null) activeScene.Dispose();
+                inspector?.Close();
+                animator = new Animator(filename);
+                activeScene.Animator = animator;
+            }
+            catch (Exception)
+            {
+            }
+
+        }
+
+        private void loadModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Filter = Utility.GetSupportedImportFormat2(),
+                InitialDirectory = Application.StartupPath + "\\Resources\\Model"                
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                OpenModelFile(openFile.FileName);
+                Text = Path.GetFileName(openFile.FileName);
+            }
+        }
+
+        private void loadAnimationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Filter = Utility.GetSupportedImportFormat2()
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                OpenAnimationFile(openFile.FileName);
+                Text = Path.GetFileName(openFile.FileName);
+            }
+        }
     }
 }

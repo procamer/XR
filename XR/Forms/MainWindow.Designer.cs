@@ -31,6 +31,8 @@
             this.glControl1 = new OpenTK.GLControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FileOpenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadAnimationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewEnvironmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ViewDisplayMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,11 +75,27 @@
             // 
             // FileOpenMenuItem
             // 
+            this.FileOpenMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadModelToolStripMenuItem,
+            this.loadAnimationToolStripMenuItem});
             this.FileOpenMenuItem.Name = "FileOpenMenuItem";
             this.FileOpenMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.FileOpenMenuItem.Size = new System.Drawing.Size(48, 20);
             this.FileOpenMenuItem.Text = "Open";
-            this.FileOpenMenuItem.Click += new System.EventHandler(this.FileOpen_Click);
+            // 
+            // loadModelToolStripMenuItem
+            // 
+            this.loadModelToolStripMenuItem.Name = "loadModelToolStripMenuItem";
+            this.loadModelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadModelToolStripMenuItem.Text = "Load Model";
+            this.loadModelToolStripMenuItem.Click += new System.EventHandler(this.loadModelToolStripMenuItem_Click);
+            // 
+            // loadAnimationToolStripMenuItem
+            // 
+            this.loadAnimationToolStripMenuItem.Name = "loadAnimationToolStripMenuItem";
+            this.loadAnimationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.loadAnimationToolStripMenuItem.Text = "Load Animation";
+            this.loadAnimationToolStripMenuItem.Click += new System.EventHandler(this.loadAnimationToolStripMenuItem_Click);
             // 
             // ViewMenuItem
             // 
@@ -184,6 +202,8 @@
         private System.Windows.Forms.ToolStripMenuItem ViewEnvironmentMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GridPropertiesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem InspectionMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadAnimationToolStripMenuItem;
     }
 }
 

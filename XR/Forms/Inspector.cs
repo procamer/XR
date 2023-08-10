@@ -4,12 +4,22 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace XR
 {
     public partial class Inspector : Form
     {
+        private Model _scene;
+        private Animator _sceneAnimator;
+        private double _animPlaybackSpeed = 1.0;
+        private int _speedAdjust;
+        private const int MaxSpeedAdjustLevels = 8;
+        private Timer _timer;
+        private bool _playing;
+        private const int TimerInterval = 30;
+        private const double PlaybackSpeedAdjustFactor = 0.6666;
 
         public bool Playing
         {
@@ -67,21 +77,12 @@ namespace XR
             }
         }
 
-        private Scene _scene;
-        private SceneAnimator _sceneAnimator;
-        private double _animPlaybackSpeed = 1.0;
-        private int _speedAdjust;
-        private const int MaxSpeedAdjustLevels = 8;
-        private Timer _timer;
-        private bool _playing;
-        private const int TimerInterval = 30;
-        private const double PlaybackSpeedAdjustFactor = 0.6666;
 
-        public Inspector(Scene scene)
+        public Inspector(Model scene)
         {
             InitializeComponent();
             _scene = scene;
-            _sceneAnimator = scene.SceneAnimator;
+            _sceneAnimator = scene.Animator;
             
             activeScene = _scene.Raw;
             AddNodes();
@@ -234,7 +235,7 @@ namespace XR
             }
             else
             {
-                dur /= SceneAnimator.DefaultTicksPerSecond;
+                dur /= Animator.DefaultTicksPerSecond;
             }
             string text = string.Format("{0} ({1}s)", anim.Name, dur.ToString("0.000"));
             return text;
@@ -422,6 +423,28 @@ namespace XR
             {
                 RecursiveTreeNode(node.Children[i]);
             }
+        }
+
+        private void btnLoadAnim_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Filter = Utility.GetSupportedImportFormat2()
+            };
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    this.Close();
+                    _scene.Animator = new Animator(openFile.FileName);
+                    Text = Path.GetFileName(openFile.FileName);
+                }
+                catch (Exception)
+                {
+                }
+            }
+
         }
 
     }
